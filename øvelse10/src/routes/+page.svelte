@@ -22,9 +22,15 @@
 		<Input class="input m-2" bind:value={userName} placeholder="Brugernavn" />
 	</div>
 	<div>
-		<Input class="input m-2" bind:value={password} placeholder="Adganskode" />
+		<Input class="input m-2" bind:value={password} placeholder="Adgangskode" />
 	</div>
 	<div>
 		<Button class="btn btn-primary m-2" onclick={btnclick}>Login</Button>
 	</div>
+
+	<!-- Tilføjet: Link til opret bruger side -->
+	<p class="mt-4 text-white">
+		Har du ikke en bruger?
+		<a href="/admin" class="link link-primary ml-2 underline">Opret en her</a>
+	</p>
 </div>
