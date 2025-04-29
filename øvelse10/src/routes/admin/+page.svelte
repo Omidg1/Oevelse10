@@ -36,3 +36,8 @@
 <div>
 	<button class="btn btn-primary" on:click={createUser}>Opret bruger</button>
 </div>
+
+<!-- Allerede bruger? Gå hjem -->
+<div class="mt-4">
+	<a href="/" class="btn btn-secondary">← Hjem</a>
+</div>
