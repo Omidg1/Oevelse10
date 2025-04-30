@@ -24,9 +24,7 @@
 				// Du kan her gemme brugerdata/token hvis nødvendigt
 				goto('/home');
 			} else {
-				alert(
-					`Login mislykkedes – forkert brugernavn eller adgangskode. Modtaget username: ${username}. Modtaget password: ${password}`
-				);
+				alert('Login mislykkedes – forkert brugernavn eller adgangskode');
 			}
 		} catch (error) {
 			console.error('Login-fejl:', error);
