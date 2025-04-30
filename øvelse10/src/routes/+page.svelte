@@ -24,19 +24,21 @@
 	};
 </script>
 
-<Title>Telemedicin 2025</Title>
+<div class="flex min-h-screen flex-col items-center justify-center bg-blue-900 p-4">
+	<h1 class="mb-6 text-3xl font-bold text-white">Log in</h1>
 
-<H1>Login</H1>
-<p class="mb-4">Log ind for at få adgang til din dagbog.</p>
+	<div>
+		<Input class="input m-2" bind:value={userName} placeholder="Brugernavn" />
+	</div>
+	<div>
+		<Input class="input m-2" bind:value={password} placeholder="Adgangskode" />
+	</div>
+	<div>
+		<Button class="btn btn-primary m-2" onclick={btnclick}>Login</Button>
+	</div>
 
-<input class="input mb-4 block" bind:value={username} type="text" placeholder="Indtast Email" />
-<input
-	class="input mb-4 block"
-	bind:value={password}
-	type="password"
-	placeholder="Indtast Password"
-/>
-<button class="btn btn-primary mb-4" onclick={login}>Login</button>
-
-<p>Har du ikke en konto endnu?</p>
-<Link href="/signup">Opret ny konto</Link>
+	<p class="mt-4 text-white">
+		Har du ikke en bruger?
+		<a href="/admin" class="link link-primary ml-2 underline">Opret en her</a>
+	</p>
+</div>
