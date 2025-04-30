@@ -3,32 +3,26 @@
 	import Button from '$lib/Button.svelte';
 	import Input from '$lib/Input.svelte';
 
-	let userName = $state('');
-	let password = $state('');
+<script>
+	import { goto } from '$app/navigation';
+	import Title from '$lib/components/Title.svelte';
+	import Link from '$lib/components/Link.svelte';
+	import H1 from '$lib/components/H1.svelte';
 
-	const btnclick = async () => {
-		try {
-			const response = await fetch('/api/login', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					userName: userName,
-					password: password
-				})
-			});
+	let username = $state('user');
+	let password = $state('password');
 
-			if (response.ok) {
-				const result = await response.json();
-				// Du kan her gemme brugerdata/token hvis nødvendigt
-				goto('/home');
-			} else {
-				alert('Login mislykkedes – forkert brugernavn eller adgangskode');
-			}
-		} catch (error) {
-			console.error('Login-fejl:', error);
-			alert('Der opstod en fejl ved loginforsøget');
+	const login = async () => {
+		const response = await fetch('/api/login', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username, password })
+		});
+		const data = await response.json();
+		if (response.ok) {
+			goto('/home');
+		} else {
+			alert('Login failed!');
 		}
 	};
 </script>
