@@ -6,14 +6,31 @@
 	let userName = $state('');
 	let password = $state('');
 
-	const btnclick = () => {
-		if (userName === 'admin' && password === 'admin') {
+	const btnclick = async () => {
+	try {
+		const response = await fetch('/api/login', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				userName: userName,
+				password: password
+			})
+		});
+
+		if (response.ok) {
+			const result = await response.json();
+			// Du kan her gemme brugerdata/token hvis nødvendigt
 			goto('/home');
 		} else {
-			alert('Login failed');
+			alert('Login mislykkedes – forkert brugernavn eller adgangskode');
 		}
-	};
-</script>
+	} catch (error) {
+		console.error('Login-fejl:', error);
+		alert('Der opstod en fejl ved loginforsøget');
+	}
+};
 
 <div class="flex min-h-screen flex-col items-center justify-center bg-blue-900 p-4">
 	<h1 class="mb-6 text-3xl font-bold text-white">Log in</h1>
