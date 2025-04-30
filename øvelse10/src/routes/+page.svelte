@@ -2,9 +2,6 @@
 	import { goto } from '$app/navigation';
 	import Button from '$lib/Button.svelte';
 	import Input from '$lib/Input.svelte';
-	import Title from '$lib/components/Title.svelte';
-	import Link from '$lib/components/Link.svelte';
-	import H1 from '$lib/components/H1.svelte';
 
 	let username = $state('user');
 	let password = $state('password');
