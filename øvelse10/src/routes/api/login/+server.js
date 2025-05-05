@@ -6,12 +6,13 @@ import { eq } from 'drizzle-orm';
 export async function POST({ request, cookies }) {
     const { username, password } = await request.json();
 
+       // Debug: udskriv input og resultat
+       console.log('Modtaget username:', username);
+
     const userData = await db.query.user.findFirst({
         where: eq(user.username, username)
     });
 
-    // Debug: udskriv input og resultat
-    console.log('Modtaget username:', username);
     console.log('Fundet bruger:', userData);
 
     if (!userData) {

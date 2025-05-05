@@ -3,7 +3,7 @@
 	import Button from '$lib/Button.svelte';
 	import Input from '$lib/Input.svelte';
 
-	let userName = $state('');
+	let username = $state('');
 	let password = $state('');
 
 	const btnclick = async () => {
@@ -14,7 +14,7 @@
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
-					userName: userName,
+					username: username,
 					password: password
 				})
 			});
@@ -37,7 +37,7 @@
 	<h1 class="mb-6 text-3xl font-bold text-white">Log in</h1>
 
 	<div>
-		<Input class="input m-2" bind:value={userName} placeholder="Brugernavn" />
+		<Input class="input m-2" bind:value={username} placeholder="Brugernavn" />
 	</div>
 	<div>
 		<Input class="input m-2" bind:value={password} placeholder="Adgangskode" />
